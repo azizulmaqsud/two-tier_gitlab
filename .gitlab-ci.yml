@@ -30,7 +30,7 @@ deploy_backend_k8s:
   dependencies:
     - docker_build_backend
   script:
-    - aws eks update-kubeconfig --region us-east-1 --name jahid
+    - aws eks update-kubeconfig --region us-east-1 --name <your eks cluster name>
     - ls -l deployments/
     - pwd
     - chmod 644 deployments/backend-deployment.yaml deployments/backend-service.yaml
@@ -43,7 +43,7 @@ deploy_frontend_k8s:
   dependencies:
     - docker_build_frontend
   script:
-    - aws eks update-kubeconfig --region us-east-1 --name jahid
+    - aws eks update-kubeconfig --region us-east-1 --name <your eks cluster name>
     - ls -l deployments/
     - chmod 644 deployments/frontend-deployment.yaml deployments/frontend-service.yaml
     - kubectl apply -f deployments/frontend-deployment.yaml -f deployments/frontend-service.yaml
